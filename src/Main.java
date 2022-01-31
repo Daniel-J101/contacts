@@ -12,13 +12,13 @@ public class Main {
     public static void main(String[] args) {
         try {
             loadContacts("contacts.txt");
-            manageContacts();
-        } catch (Exception e) {
+        } catch (FileNotFoundException e) {
             System.out.println(e.getMessage());
 //            e.printStackTrace();
         } finally {
             System.out.println("CONTACTS LOADED\n\n");
             System.out.println(manager);
+            manageContacts();
         }
 
 
