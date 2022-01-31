@@ -14,6 +14,9 @@ public class Contact {
     public Contact(String name, String number, String birthDate) throws ParseException {
         if(name == null || name.isEmpty())
             throw new IllegalArgumentException("Name cannot be null/blank");
+
+        if(number == null || number.isEmpty() || number.length() < 5)
+            throw new IllegalArgumentException("Phone number cannot be null/blank/under 5 characters");
         this.name = name;
         this.number = number;
         this.birthDate = birthDate;
@@ -32,6 +35,8 @@ public class Contact {
     }
 
     public void setName(String name) {
+        if(name == null || name.isEmpty())
+            throw new IllegalArgumentException("Name cannot be null/blank");
         this.name = name;
     }
 
@@ -49,6 +54,8 @@ public class Contact {
     }
 
     public void setNumber(String number) {
+        if(number == null || number.isEmpty() || number.length() < 5)
+            throw new IllegalArgumentException("Phone number cannot be null/blank/under 5 characters");
         this.number = number;
     }
 
