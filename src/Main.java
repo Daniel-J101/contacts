@@ -1,18 +1,31 @@
 import models.Contact;
+import models.ContactManager;
 
 import java.text.ParseException;
 
 public class Main {
+    private static ContactManager manager = new ContactManager();
+
     public static void main(String[] args) {
         try {
             Contact contact = new Contact("Alan Turing", "6139874561", "07/23/1912");
             System.out.println(contact);
+
+
+            manager.addContact(new Contact("Ryan", "6135012424", "11/11/1992"));
+            manager.addContact(new Contact("Gio", "6477092344", "11/11/1993"));
+            manager.addContact(new Contact("Thomas", "8192256979", "11/11/1994"));
+            System.out.println(manager);
+            manager.removeContact("Gio");
+            System.out.println(manager);
+
         } catch (ParseException e) {
             System.out.println(e.getMessage());
             e.printStackTrace();
         } finally {
             System.out.println("Process Complete");
         }
+
 
 
 
